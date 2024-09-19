@@ -1,38 +1,192 @@
-.App {
-  text-align: center;
+/* Reset default styles */
+body, html, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Define default (light) theme colors */
+:root {
+    --background-color: #ffffff; /* Light mode background */
+    --primary-color: #1890ff;
+    --secondary-color: #f0f2f5;
+    --text-color: #000000; /* Light mode text color */
+    --card-background: #fafafa;
+    --header-background: #001529;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Define dark theme colors */
+[data-theme="dark"] {
+    --background-color: #000000; /* Dark mode background */
+    --primary-color: #40a9ff;
+    --secondary-color: #2e2e2e;
+    --text-color: #ffffff; /* Dark mode text color */
+    --card-background: #2c2c2c;
+    --header-background: #000000;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Apply theme colors */
+body, html, #root {
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
-.App-link {
-  color: #61dafb;
+/* Header Styles */
+.header {
+    background-color: var(--header-background);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 64px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Logo Styles */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h3 {
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* Content Styles */
+.site-layout-content {
+    padding: 24px;
+    min-height: 280px;
+    background: var(--background-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Card Styles */
+.search-card {
+    background-color: var(--secondary-color);
+}
+
+/* Weather Card Styles */
+.weather-card {
+    background-color: var(--card-background);
+    color: var(--text-color);
+    padding: 16px;
+}
+
+.weather-card img {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+}
+
+.weather-card div {
+    margin-bottom: 16px;
+}
+
+.weather-card .ant-typography {
+    color: var(--text-color);
+}
+
+/* Button Styles */
+.ant-btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Alert Styles */
+.ant-alert {
+    border-radius: 5px;
+}
+
+/* Theme Toggle Button Styles */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle .ant-switch {
+    margin-left: 16px;
+}
+
+/* Responsive Styles */
+
+/* For phones and small tablets */
+@media (max-width: 576px) {
+    .logo h3 {
+        font-size: 18px;
+    }
+
+    .site-layout-content {
+        padding: 16px;
+    }
+
+    .search-card,
+    .weather-card {
+        margin: 0 8px;
+    }
+
+    .ant-card {
+        margin-bottom: 16px;
+    }
+
+    .ant-btn-primary {
+        font-size: 14px;
+    }
+}
+
+/* For tablets and smaller laptops */
+@media (min-width: 577px) and (max-width: 1024px) {
+    .logo h3 {
+        font-size: 22px;
+    }
+
+    .site-layout-content {
+        padding: 20px;
+    }
+
+    .search-card,
+    .weather-card {
+        margin: 0 16px;
+    }
+
+    .ant-card {
+        margin-bottom: 20px;
+    }
+
+    .ant-btn-primary {
+        font-size: 16px;
+    }
+}
+
+/* For laptops and larger screens */
+@media (min-width: 1025px) {
+    .logo h3 {
+        font-size: 26px;
+    }
+
+    .site-layout-content {
+        padding: 24px;
+    }
+
+    .search-card,
+    .weather-card {
+        margin: 0 auto;
+    }
+
+    .ant-card {
+        margin-bottom: 24px;
+    }
+
+    .ant-btn-primary {
+        font-size: 18px;
+    }
 }
